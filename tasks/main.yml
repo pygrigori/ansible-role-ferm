@@ -1,2 +1,30 @@
 ---
 # tasks file for ansible-role-ferm
+
+- block:
+
+  - name: install
+    apt:
+      name: "{{ item }}"
+      state: present
+      install_recommends: false
+    with_items:
+      - "{{ ferm_pkg }}"
+      - "{{ ferm_dependencies }}"
+    tags:
+      - install
+
+  - name: setup
+    template:
+      src: ferm.conf.j2
+      dest: /etc/ferm/ferm.conf
+      owner: root
+      group: root
+      mode: u=rwX,go=rX
+    notify: ferm restart
+    tags:
+      - setup
+
+  become: true
+  tags:
+    - ferm

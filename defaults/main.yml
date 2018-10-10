@@ -1,2 +1,18 @@
 ---
 # defaults file for ansible-role-ferm
+
+ferm_pkg:
+  - ferm
+  - patch
+ferm_dependencies: []
+
+ferm_variables: {}
+
+ferm_filter_input_policy: ACCEPT
+ferm_filter_input_fules: []
+
+ferm_filter_output_policy: ACCEPT
+ferm_filter_output_fules: []
+
+ferm_filter_forward_policy: ACCEPT
+ferm_filter_forward_fules: []
