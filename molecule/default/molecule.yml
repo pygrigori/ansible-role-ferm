@@ -7,7 +7,8 @@ lint:
   name: yamllint
 platforms:
   - name: instance
-    image: centos:7
+    image: ubuntu:14.04
+    capabilities: ['NET_ADMIN']
 provisioner:
   name: ansible
   lint:
