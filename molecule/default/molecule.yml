@@ -6,8 +6,8 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: instance
-    image: ubuntu:14.04
+  - name: trusty
+    image: ubuntu:trusty
     capabilities: ['NET_ADMIN']
 provisioner:
   name: ansible
