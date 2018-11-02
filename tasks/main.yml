@@ -5,12 +5,9 @@
 
   - name: install
     apt:
-      name: "{{ item }}"
+      name: "{{ ferm_dependencies + ferm_pkg is string | ternary([ferm_pkg], ferm_pkg) }}"
       state: present
       install_recommends: false
-    with_items:
-      - "{{ ferm_pkg }}"
-      - "{{ ferm_dependencies }}"
     tags:
       - install
 
