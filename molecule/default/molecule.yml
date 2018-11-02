@@ -9,6 +9,9 @@ platforms:
   - name: trusty
     image: ubuntu:trusty
     capabilities: ['NET_ADMIN']
+  - name: xenial
+    image: ubuntu:xenial
+    capabilities: ['NET_ADMIN']
 provisioner:
   name: ansible
   lint:
