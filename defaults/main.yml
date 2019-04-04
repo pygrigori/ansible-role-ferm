@@ -6,13 +6,17 @@ ferm_pkg:
   - patch
 ferm_dependencies: []
 
-ferm_variables: {}
+ferm_config: |
+    table filter {
+        chain INPUT {
+            policy ACCEPT;
+        }
 
-ferm_filter_input_policy: ACCEPT
-ferm_filter_input_fules: []
+        chain OUTPUT {
+            policy ACCEPT;
+        }
 
-ferm_filter_output_policy: ACCEPT
-ferm_filter_output_fules: []
-
-ferm_filter_forward_policy: ACCEPT
-ferm_filter_forward_fules: []
+        chain FORWARD {
+            policy ACCEPT;
+        }
+    }
