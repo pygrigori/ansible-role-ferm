@@ -18,6 +18,7 @@
       owner: root
       group: root
       mode: u=rwX,go=rX
+      validate: "ferm --noexec %s"
     notify: ferm restart
     tags:
       - setup
