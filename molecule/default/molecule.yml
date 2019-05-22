@@ -12,6 +12,9 @@ platforms:
   - name: xenial
     image: ubuntu:xenial
     capabilities: ['NET_ADMIN']
+  - name: bionic
+    image: ubuntu:bionic
+    capabilities: ['NET_ADMIN']
   - name: stretch
     image: debian:stretch
     capabilities: ['NET_ADMIN']
