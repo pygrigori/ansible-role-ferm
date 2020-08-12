@@ -9,6 +9,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 @pytest.mark.parametrize('package', [
     'ferm',
+    'iptables',
     'patch'
 ])
 def test_pkg_installed(host, package):
@@ -40,3 +41,11 @@ def test_config_is_valid(host):
     cmd = host.run('ferm --noexec /etc/ferm/ferm.conf')
 
     assert not cmd.rc
+
+
+def test_iptables_rules(host):
+    assert host.check_output('iptables --list-rules').split("\n") == [
+        '-P INPUT ACCEPT',
+        '-P FORWARD ACCEPT',
+        '-P OUTPUT ACCEPT'
+    ]
