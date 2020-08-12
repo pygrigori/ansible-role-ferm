@@ -5,3 +5,4 @@
   service:
     name: ferm
     state: restarted
+  become: true
